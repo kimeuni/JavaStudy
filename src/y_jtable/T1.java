@@ -146,6 +146,23 @@ public class T1 extends JFrame {
 			}
 		});
 		
+		// 테이블 클릭시 화면 띄우기.
+		tbl.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				InsaVO vo = new InsaVO();
+				int row = tbl.getSelectedRow();
+				
+				vo.setIdx((int)tbl.getValueAt(row, 0));	//내가 선택한 행에.. 일련번호	//언박싱
+				vo.setName(tbl.getValueAt(row, 1).toString());	//이름
+				vo.setAge((int)tbl.getValueAt(row, 2));			//나이
+				vo.setGender(tbl.getValueAt(row, 3).toString());//성별
+				vo.setIpsail(tbl.getValueAt(row, 4).toString().substring(0,10));//입사일
+				
+				new InsaSearch(vo);
+			}
+		});
+		
 		// 새창에 선택된 행의 정보 출력하기 버튼
 		btnNewWindow.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
