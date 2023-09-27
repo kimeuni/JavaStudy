@@ -1,4 +1,4 @@
-package y_jtable;
+package yy_jtable;
 
 import java.awt.EventQueue;
 
